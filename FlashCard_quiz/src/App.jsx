@@ -11,6 +11,7 @@ function App() {
 
   const [currentCard,setCurrentCard]= useState(0);
   const [showAnswer,setShowAnsswer]=useState(false);
+  const [score,setscore]=useState(0);
 
   return (
     <>
