@@ -20,9 +20,11 @@ function App() {
         <p  > 
           {flashCard[currentCardIndex].question}
         </p>
+     {/* toggle */}
        <button button onClick={() => setShowAnswer(!showAnswer)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2">
         {showAnswer ?"Hide Answer":"show Answer"}
        </button>
+       {/* conditional rendering of answer */}
         {showAnswer && (
           <p>
             Answer: {flashCard[currentCardIndex].answer}
