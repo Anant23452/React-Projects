@@ -54,7 +54,7 @@ function App() {
        null
       ) :(
         <button className="bg-gray-500 hover:bg-green-700 text-white font-bold px-2 my-2 mx-2" onClick ={()=>{
-          setCurrentCardIndex((prevIndex)=>(prevIndex - 1) % flashCard.length);
+          setCurrentCardIndex((prevIndex)=>(prevIndex==0?null:prevIndex-1) % flashCard.length);
         }}>previous</button>
       )}
       {quizFinished && (
