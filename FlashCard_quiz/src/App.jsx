@@ -4,19 +4,30 @@ import "./App.css";
 
 function App() {
   const flashCard = [
-    { question: "What is the capital of France?", answer: "Paris" },
-    { question: "What is the largest planet in our solar system?" },
-    { question: "What is the chemical symbol for gold?" },
+    { question: "What is the capital of France?", answer: "Paris",answer: "Paris", },
+    { question: "What is the largest planet in our solar system?", answer: "Jupiter", },
+    { question: "What is the chemical symbol for gold?", answer: "Au", },
   ];
 
-  const [currentCard,setCurrentCard]= useState(0);
-  const [showAnswer,setShowAnsswer]=useState(false);
-  const [score,setscore]=useState(0);
+  const [currentCardIndex,setCurrentCardIndex]= useState(0);
+  const [showAnswer,setShowAnswer]=useState(false);
+  const [score,setScore]=useState(0);
 
   return (
     <>
       <div>
-        <h1>FlashCard Quiz</h1>
+        <h1>FlashCard Quiz qustions</h1>
+        <p  > 
+          {flashCard[currentCardIndex].question}
+        </p>
+       <button button onClick={() => setShowAnswer(!showAnswer)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2">
+        {showAnswer ?"Hide Answer":"show Answer"}
+       </button>
+        {showAnswer && (
+          <p>
+            Answer: {flashCard[currentCardIndex].answer}
+          </p>
+        )}
       </div>
     </>
   );
