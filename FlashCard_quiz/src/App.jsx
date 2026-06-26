@@ -21,8 +21,8 @@ function App() {
           {flashCard[currentCardIndex].question}
         </p>
      {/* toggle */}
-       <button button onClick={() => setShowAnswer(!showAnswer)} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2">
-        {showAnswer ?"Hide Answer":"show Answer"}
+       <button button onClick={() => setShowAnswer(!showAnswer)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold px-2 my-2">
+        {showAnswer ?"Hide Answer":"Show Answer"}
        </button>
        {/* conditional rendering of answer */}
         {showAnswer && (
@@ -30,6 +30,13 @@ function App() {
             Answer: {flashCard[currentCardIndex].answer}
           </p>
         )}
+      </div>
+      <div className="next-button  bg-gray-200 box-border border-gray-400 p-2 rounded-md  flex justify-center items-center">
+      <button onClick ={()=>{
+        setCurrentCardIndex((prevIndex)=>(prevIndex + 1) % flashCard.length);
+      }} className="bg-gray-500 hover:bg-green-700 text-white font-bold px-2 my-2">
+        Next Card
+      </button>
       </div>
     </>
   );
