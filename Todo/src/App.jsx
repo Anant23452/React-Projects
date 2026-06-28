@@ -12,7 +12,7 @@ function App() {
         Todos App 📕
       </h1>
 
-      <div className="input p-4 rounded-lg">
+      <div className="input-container p-4 rounded-lg">
         <input
           type="text"
           placeholder="write a task"
