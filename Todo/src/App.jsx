@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [task, setTask] = useState("");
 
   return (
     <>
@@ -12,11 +12,13 @@ function App() {
           Todos App 📕
         </h1>
 
-        <div className="input-container flex justify-center gap-3 p-4">
+        <div className="input-container p-4 rounded-lg">
           <input
             type="text"
             placeholder="write a task"
-            className="border-2 border-gray-300 p-2 rounded-lg w-80  "
+            className="border-2 border-gray-300 p-2 rounded-lg w-80 m-2 "
+            value={task}
+            onChange={(e)=>setTask(e.target.value)}
           ></input>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-30 m-auto">
             Add
