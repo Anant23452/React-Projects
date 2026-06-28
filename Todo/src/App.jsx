@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-    <div className="min-h-screen bg-gray-600 p-8">
+    <div className="min-h-screen bg-gray-800 p-8">
       <h1 className="text-4xl font-extrabold !text-blue-600 border-b-2 p-2  ">
         Todos App 📕
       </h1>
