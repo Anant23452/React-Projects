@@ -12,11 +12,11 @@ function App() {
           Todos App 📕
         </h1>
 
-        <div className="input-container p-4 rounded-lg">
+        <div className="input-container flex justify-center gap-3 p-4">
           <input
             type="text"
             placeholder="write a task"
-            className="border-2 border-gray-300 p-2 rounded-lg w-80 m-2 "
+            className="border-2 border-gray-300 p-2 rounded-lg w-80  "
           ></input>
           <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-30 m-auto">
             Add
@@ -30,12 +30,15 @@ function App() {
         </div>
 
         <div className="show-todo border-2 border-gray-300 p-4 rounded-lg max-w-3xl m-auto max-h-[400px] overflow-y-auto ">
-          <div className="task-box flex justify-center  items-center bg-gray-200 p-2 rounded-lg m-2">
+
+
+
+          <div className="task-box flex justify-between  items-center bg-gray-200 p-2 rounded-lg m-2">
             <div className="flex items-center gap-3">
               <input type="checkbox" />
               <span>Task</span>
             </div>
-            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-30 m-auto">
+            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-10 h-10 ">
               🗑
             </button>
           </div>
