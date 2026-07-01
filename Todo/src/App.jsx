@@ -26,6 +26,7 @@ function App() {
         todo.completed = !todo.completed;
       }
     })
+    setTodos({...todos});
   }
 
   return (
