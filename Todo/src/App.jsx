@@ -6,11 +6,10 @@ function App() {
   const [task, setTask] = useState("");
   const[todos,setTodos]=useState([]);
   function addTodo(){
-    if(task.trim() !==""){
-    
-      return;
-    }
-    setTodoes([...todos,task]);
+   if (task.trim() === "") {
+    return;
+}
+    setTodos([...todos,task]);
     setTask("");
   }
 
@@ -32,10 +31,11 @@ function App() {
             value={task}
             onChange={(e)=>setTask(e.target.value)}
           ></input>
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded w-30 m-auto"
-          onClick={addTodo}>
-            Add
-          </button>
+          <form 
+          onSubmit={(e)=>{
+            e.preventDefault();
+            addTodo();
+          }}>Add</form>
         </div>
 
         <div className="filters flex justify-center gap-4 p-4 rounded-lg">
@@ -51,7 +51,7 @@ function App() {
           <div className="task-box flex justify-between  items-center bg-gray-200 p-2 rounded-lg m-2">
             <div className="flex items-center gap-3">
               <input type="checkbox" />
-              <span>{task}</span>
+              <span>{todos}</span>
             </div>
             <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-10 h-10 ">
               🗑
