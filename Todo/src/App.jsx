@@ -10,7 +10,7 @@ function App() {
     if (task.trim() === "") {
       return;
     }
-    setTodos([...todos, task]);
+    setTodos([...todos,{text: task, completed: false}]);
     setTask("");
   }
   function deleteTodo(index){
