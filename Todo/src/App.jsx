@@ -4,6 +4,7 @@ import "./App.css";
 
 function App() {
   const [task, setTask] = useState("");
+  const[todos,setTodos]=useState([]);
 
   return (
     <>
@@ -11,6 +12,9 @@ function App() {
         <h1 className="text-4xl font-extrabold !text-blue-600 border-b-2 p-2  ">
           Todos App 📕
         </h1>
+        <p className="text-white mt-4">
+  Current Task: {task}
+</p>
 
         <div className="input-container p-4 rounded-lg">
           <input
