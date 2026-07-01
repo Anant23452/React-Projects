@@ -5,7 +5,7 @@ import "./App.css";
 function App() {
   const [task, setTask] = useState("");
   const [todos, setTodos] = useState([]);
-  L
+  const [filter, setFilter]=useState("all");
 
   function addTodo() {
     if (task.trim() === "") {
@@ -83,7 +83,7 @@ function App() {
 
 
         <div className="show-todo border-2 border-gray-300 p-4 rounded-lg max-w-3xl m-auto max-h-[400px] overflow-y-auto ">
-          {todos.map((todo, index) => {
+          {filterTodos.map((todo, index) => {
             return (
               <div
                 className="task-box flex justify-between  items-center bg-gray-200 p-2 rounded-lg m-2"
