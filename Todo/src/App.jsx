@@ -20,6 +20,14 @@ function App() {
     setTodos(newtodo);
   }
 
+  function toggleTodo(index) {
+    todos.map((todo,i)=>{
+      if(i===index){
+        todo.completed = !todo.completed;
+      }
+    })
+  }
+
   return (
     <>
       <div className="min-h-screen bg-gray-800 p-8">
@@ -64,8 +72,8 @@ function App() {
                 className="task-box flex justify-between  items-center bg-gray-200 p-2 rounded-lg m-2"
                 key={index}
               >
-                <div className="flex items-center gap-3">;l
-                  <input type="checkbox" checked={todo.completed} />
+                <div className="flex items-center gap-3">
+                  <input type="checkbox" checked={todo.completed} onClick={() => toggleTodo(index)} />
                   <span>{todo}</span>
                 </div>
                 <button
