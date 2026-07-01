@@ -64,8 +64,8 @@ function App() {
                 className="task-box flex justify-between  items-center bg-gray-200 p-2 rounded-lg m-2"
                 key={index}
               >
-                <div className="flex items-center gap-3">
-                  <input type="checkbox" />
+                <div className="flex items-center gap-3">;l
+                  <input type="checkbox" checked={todo.completed} />
                   <span>{todo}</span>
                 </div>
                 <button
