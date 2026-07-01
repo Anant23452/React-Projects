@@ -21,12 +21,13 @@ function App() {
   }
 
   function toggleTodo(index) {
-    todos.map((todo,i)=>{
+    const newTodo = todos.map((todo,i)=>{
       if(i===index){
-        todo.completed = !todo.completed;
+        return {...todo, completed:!todo.completed}
       }
+      return {...todo};
     })
-    setTodos({...todos});
+    setTodos({newTodo});
   }
 
   return (
@@ -59,7 +60,7 @@ function App() {
             
         <div className="filters flex justify-center gap-4 p-4 rounded-lg">
           <button>All</button>
-          <button onClick={()}>
+          <button >
             Active</button>
           <button>Completed</button>
         </div>
