@@ -47,12 +47,15 @@ function App() {
             </button>
           </form>
         </div>
-
+            
         <div className="filters flex justify-center gap-4 p-4 rounded-lg">
           <button>All</button>
-          <button>Active</button>
+          <button onClick={()}>
+            Active</button>
           <button>Completed</button>
         </div>
+
+
 
         <div className="show-todo border-2 border-gray-300 p-4 rounded-lg max-w-3xl m-auto max-h-[400px] overflow-y-auto ">
           {todos.map((todo, index) => {
