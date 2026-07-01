@@ -25,9 +25,9 @@ function App() {
       if(i===index){
         return {...todo, completed:!todo.completed}
       }
-      return {...todo};
+      return todo;
     })
-    setTodos({newTodo});
+    setTodos(newTodo);
   }
 
   return (
@@ -75,8 +75,8 @@ function App() {
                 key={index}
               >
                 <div className="flex items-center gap-3">
-                  <input type="checkbox" checked={todo.completed} onClick={() => toggleTodo(index)} />
-                  <span>{todo}</span>
+                  <input type="checkbox" checked={todo.completed} onChange={() => toggleTodo(index)} />
+                  <span  className={todo.completed ? "line-through text-gray-500" : ""}>{todo.text}</span>
                 </div>
                 <button
                   className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-10 h-10 "
