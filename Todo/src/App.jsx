@@ -48,15 +48,19 @@ function App() {
 
 
 
-          <div className="task-box flex justify-between  items-center bg-gray-200 p-2 rounded-lg m-2">
-            <div className="flex items-center gap-3">
-              <input type="checkbox" />
-              <span>{todos}</span>
-            </div>
-            <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-10 h-10 ">
-              🗑
-            </button>
-          </div>
+          {todos.map((todo, index) => {
+            return (
+              <div className="task-box flex justify-between  items-center bg-gray-200 p-2 rounded-lg m-2" key={index}>
+                <div className="flex items-center gap-3">
+                  <input type="checkbox" />
+                  <span>{todo}</span>
+                </div>
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded w-10 h-10 ">
+                  🗑
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
     </>
