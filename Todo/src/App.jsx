@@ -29,6 +29,18 @@ function App() {
     })
     setTodos(newTodo);
   }
+  let filterTodos =[];
+  if (filter === "all"){
+    filterTodos = todos;
+  } else if (filter == "active"){
+    filterTodos = todos.filter((todo)=>!todo.completed);
+  }
+  else{
+    filterTodos = todos.filter((todo)=> todo.completed);
+  }
+ 
+    
+      
 
   return (
     <>
@@ -59,10 +71,12 @@ function App() {
         </div>
             
         <div className="filters flex justify-center gap-4 p-4 rounded-lg">
-          <button>All</button>
-          <button >
+          <button onClick={() => setFilter("all")}>
+            All</button>
+          <button onClick={() => setFilter("active")}>
             Active</button>
-          <button>Completed</button>
+          <button onClick={() => setFilter("completed")}>
+            Completed</button>
         </div>
 
 
