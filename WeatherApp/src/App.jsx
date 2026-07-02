@@ -45,10 +45,38 @@ function App() {
       </div>
     </div>
      {/* forecast */}
-      <div className="forecast  p-4 rounded-md w-full  h-full flex flex-col  items-start gap-2">
+      <div className="forecast  p-4 rounded-md w-full  h-screen bg-grey-200">
+        <h1>5-Day Forecast</h1>
+        <div className="forecast-cards flex justify-center items-center gap-2">
+          <div className="card bg-gray-600 p-4 rounded-md w-1/5 h-full  md:flex-row">
+            <h2>Mon</h2>
+            <h2>30°C</h2>
+            <h1>🌤️</h1>
+          </div>  
+          <div className="card bg-gray-600 p-4 rounded-md w-1/5 h-full  md:flex-row">
+            <h2>Tue</h2>
+            <h2>32°C</h2>
+            <h1>🌤️</h1>
+          </div>
+          <div className="card bg-gray-600 p-4 rounded-md w-1/5 h-full  md:flex-row">
+            <h2>Wed</h2>
+            <h2>28°C</h2>
+            <h1>🌧️</h1>
+          </div>
+          <div className="card bg-gray-600 p-4 rounded-md w-1/5 h-full  md:flex-row">
+            <h2>Thu</h2>
+            <h2>31°C</h2>
+            <h1>🌤️</h1>
+          </div>
+          <div className="card bg-gray-600 p-4 rounded-md w-1/5 h-full  md:flex-row">
+            <h2>Fri</h2>
+            <h2>29°C</h2>
+            <h1>🌧️</h1>
+          </div>  
         </div>
      </div>
      </div>
+    </div>
     </>
   )
 }
