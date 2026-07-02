@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montenegrin+Gothic+One&display=swap');
+
 .counter {
   font-size: 16px;
   padding: 5px 10px;
@@ -7,6 +9,9 @@
   border: 2px solid transparent;
   transition: border-color 0.3s;
   margin-bottom: 24px;
+   font-family: "Montenegrin Gothic One", serif;
+  font-weight: 400;
+  font-style: normal;
 
   &:hover {
     border-color: var(--accent-border);
