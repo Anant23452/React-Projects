@@ -8,6 +8,7 @@ function App() {
 
   return (
     <>
+    <div className="parent">
      <h1 className="font-bold bg-blue-500">Weather App🌤️</h1>
      <div className="body   h-screen bg-gradient-to-tr from-grey-800 to-slate-700 ">
 
@@ -36,14 +37,17 @@ function App() {
       
       </div>
       <div className="second  p-4 rounded-md w-1/2   h-full flex flex-col  items-start gap-2">
-      <h2 className='border-2 mx-2 p-2'>Humidity: 35%</h2>
-      <h2 className='border-2 mx-2 p-2'>Wind : 12 km/h</h2>
-      <h2 className='border-2 mx-2 p-2'>Feels Like : 35°C</h2>
+      <h2 className='border-2 mx-2 p-2'>Humidity: <span>35%</span></h2>
+      <h2 className='border-2 mx-2 p-2'>Wind : <span>12 km/h</span></h2>
+      <h2 className='border-2 mx-2 p-2'>Feels Like : <span>35°C</span></h2>
       {/* weather description */}
       <h2>Weather Description : Clear Sky</h2>
       </div>
     </div>
-
+     {/* forecast */}
+      <div className="forecast  p-4 rounded-md w-full  h-full flex flex-col  items-start gap-2">
+        </div>
+     </div>
      </div>
     </>
   )
