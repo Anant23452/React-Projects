@@ -65,7 +65,12 @@ function App() {
           </div>
 
           {/* main div  */}
-          <div className="main flex justify-center items-center gap-2  p-4  w-full max-h-screen  md:flex-row flex-col">
+         {error?
+         {
+          <div className=""></div>
+
+         }:{
+           <div className="main flex justify-center items-center gap-2  p-4  w-full max-h-screen  md:flex-row flex-col">
             {/* //weather info */}
             <div className="one bg-gray-600 p-4 rounded-md w-1/2 h-full  md:flex-row">
               <h1>{weather?.name} </h1>
@@ -89,6 +94,7 @@ function App() {
               </h2>
             </div>
           </div>
+         }}
           {/* forecast */}
         </div>
         <div className="forecast  p-4 rounded-md w-full  h-screen bg-grey-200">
