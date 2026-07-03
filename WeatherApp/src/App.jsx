@@ -1,12 +1,32 @@
 import { useState } from 'react'
 import './App.css'
-import { use } from 'react'
+
 
       
 
 function App() {
   
       const[place,setPlace]=useState('')
+      const[weather,setWeather]=useState(null)
+
+
+      // async function getWeather(){
+      //   let response = await fetch();
+      //   let data = response.json()
+      //   setWeather(data)
+      // }
+     
+
+      
+       async function fetchWeather(){
+        const url = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apiKey}&units=metric`;
+        const response = await fetch(url);
+        // console.log(response)
+        const data=await response.json();
+        setWeather(data);
+       }
+       
+      
   return (
     <>
     <div className="parent">
@@ -17,8 +37,12 @@ function App() {
       {/* //search box */}
 
       <div className="search border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-800 border-b-2 ">
-         <form action="">
-          <input type="text" placeholder='search location' label="Search Location" className=" bg-white p-3 my-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500  z-10 " value={place} onChange={(e)=>setPlace(e.value.target)} />
+        <h3>current city:{place}</h3>
+         <form action="" onSubmit={(e)=>{
+          e.preventDefault();
+
+         }}>
+          <input type="text" placeholder='search location'  className=" bg-white p-3 my-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500  z-10 " value={place} onChange={(e)=>setPlace(e.target.value)} />
          <button className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600">Search</button>
          </form>
       </div>
@@ -82,6 +106,7 @@ function App() {
     </div>
     </>
   )
+}
 }
 
 export default App
