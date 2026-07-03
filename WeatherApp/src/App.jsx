@@ -16,6 +16,8 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
       setWeather(data);
+      console.log(response);
+console.log(data);
     } catch (error) {
       console.log("error");
     }
@@ -65,7 +67,7 @@ function App() {
             {/* //weather info */}
             <div className="one bg-gray-600 p-4 rounded-md w-1/2 h-full  md:flex-row">
               <h1>{weather?.name} </h1>
-              <h2>{weather?.main.temp}°C</h2>
+              <h2>{weather?.main?.temp}°C</h2>
               <h1>🌤️</h1>
             </div>
             <div className="second  p-4 rounded-md w-1/2   h-full flex flex-col  items-start gap-2">
@@ -79,7 +81,7 @@ function App() {
                 <span> Feels Like: {weather?.main?.feels_like}°C</span>
               </h2>
               {/* weather description */}
-              <h2>Weather Description : {weather?.weather[0].description}</h2>
+              <h2>  Weather Description : {weather?.weather?.[0]?.description}</h2>
             </div>
           </div>
           {/* forecast */}
