@@ -17,8 +17,8 @@ function App() {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apiKey}&units=metric`;
       const response = await fetch(url);
       if (!response.ok) {
-        setWeather(null);
-        setError("City not found");
+       
+        setError(data.message || "Unable to fetch weather");
         return;
       }
       const data = await response.json();
