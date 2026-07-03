@@ -10,18 +10,24 @@ function App() {
 
   async function fetchWeather() {
     console.log("fetchWeather called");
+    setLoading(true);
+    setError("");
 
     try {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apiKey}&units=metric`;
       const response = await fetch(url);
       if (!response.ok) {
-        console.log("City not found");
+        setWeather(null);
+        setError("City not found");
         return;
       }
       const data = await response.json();
       setWeather(data);
     } catch (error) {
-      console.log("error");
+      setWeather(null);
+      setError("Unable to fetch weather");
+    } finally {
+      setLoading(false);
     }
   }
 
@@ -65,11 +71,9 @@ function App() {
           </div>
 
           {/* main div  */}
-         {error?
-         {
-          <div className=""></div>
-
-         }:{
+         {error ? (
+           <div className="text-red-500">{error}</div>
+         ) : (
            <div className="main flex justify-center items-center gap-2  p-4  w-full max-h-screen  md:flex-row flex-col">
             {/* //weather info */}
             <div className="one bg-gray-600 p-4 rounded-md w-1/2 h-full  md:flex-row">
@@ -94,7 +98,7 @@ function App() {
               </h2>
             </div>
           </div>
-         }}
+         )}
           {/* forecast */}
         </div>
         <div className="forecast  p-4 rounded-md w-full  h-screen bg-grey-200">
