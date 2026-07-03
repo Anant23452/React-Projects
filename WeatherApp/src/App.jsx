@@ -71,7 +71,10 @@ function App() {
           </div>
 
           {/* main div  */}
-         {error ? (
+        
+          
+        
+         {loading?(<div className="text-center">Loading...</div>) : error ? (
            <div className="text-red-500">{error}</div>
          ) : (
            <div className="main flex justify-center items-center gap-2  p-4  w-full max-h-screen  md:flex-row flex-col">
