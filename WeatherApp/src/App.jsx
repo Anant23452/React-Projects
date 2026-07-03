@@ -1,18 +1,22 @@
-import {useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [place, setPlace] = useState("Delhi");
+  const [place, setPlace] = useState("");
+  const defaultCity = "Delhi";
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  useEffect(() => {
+    fetchWeather(defaultCity);
+  }, []);
   let apiKey = "b8151c19872033488d3a87b28b67b210";
-  if(place.trim() === "") {
-    setError("Please enter a location");
-    return;
-  }
 
   async function fetchWeather() {
+    if (place.trim() === "") {
+      setError("Please enter a location");
+      return;
+    }
     console.log("fetchWeather called");
     setLoading(true);
     setError("");
@@ -33,9 +37,6 @@ function App() {
     } finally {
       setLoading(false);
     }
-    useEffect(()=>{
- 
-    },[])
   }
 
   return (
@@ -54,7 +55,6 @@ function App() {
                 fetchWeather();
               }}
             >
-              
               <input
                 type="text"
                 placeholder="search location"
@@ -62,9 +62,12 @@ function App() {
                 value={place}
                 onChange={(e) => setPlace(e.target.value)}
               />
-              
-              <button disabled={loading} className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600">
-                {loading ? "Loading...":"Search"}
+
+              <button
+                disabled={loading}
+                className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600"
+              >
+                {loading ? "Loading..." : "Search"}
               </button>
             </form>
           </div>
