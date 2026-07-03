@@ -8,11 +8,12 @@ function App() {
   
       const[place,setPlace]=useState('Mumbai')
       const[weather,setWeather]=useState(null)
-      let apiKey=b8151c19872033488d3a87b28b67b210;
+      let apiKey="b8151c19872033488d3a87b28b67b210";
      
 
       
        async function fetchWeather(){
+         console.log("fetchWeather called");
         const url = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apiKey}&units=metric`;
         const response = await fetch(url);
         // console.log(response)
@@ -35,6 +36,7 @@ function App() {
         <h3>current city:{place}</h3>
          <form action="" onSubmit={(e)=>{
           e.preventDefault();
+          fetchWeather();
 
          }}>
           <input type="text" placeholder='search location'  className=" bg-white p-3 my-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500  z-10 " value={place} onChange={(e)=>setPlace(e.target.value)} />
