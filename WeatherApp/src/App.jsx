@@ -1,8 +1,8 @@
-import { useState } from "react";
+import {useEffect, useState } from "react";
 import "./App.css";
 
 function App() {
-  const [place, setPlace] = useState("");
+  const [place, setPlace] = useState("Delhi");
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -33,6 +33,9 @@ function App() {
     } finally {
       setLoading(false);
     }
+    useEffect(()=>{
+ 
+    },[])
   }
 
   return (
