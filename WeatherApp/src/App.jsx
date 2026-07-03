@@ -7,6 +7,10 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   let apiKey = "b8151c19872033488d3a87b28b67b210";
+  if(place.trim() === "") {
+    setError("Please enter a location");
+    return;
+  }
 
   async function fetchWeather() {
     console.log("fetchWeather called");
@@ -16,9 +20,9 @@ function App() {
     try {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apiKey}&units=metric`;
       const response = await fetch(url);
+      const data = await response.json();
       if (!response.ok) {
-       
-        const data = await response.json();
+        setWeather(null);
         setError(data.message || "Unable to fetch weather");
         return;
       }
@@ -47,6 +51,7 @@ function App() {
                 fetchWeather();
               }}
             >
+              
               <input
                 type="text"
                 placeholder="search location"
@@ -54,8 +59,9 @@ function App() {
                 value={place}
                 onChange={(e) => setPlace(e.target.value)}
               />
-              <button className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600">
-                Search
+              
+              <button disabled={loading} className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600">
+                {loading ? "Loading...":"Search"}
               </button>
             </form>
           </div>
@@ -71,37 +77,37 @@ function App() {
           </div>
 
           {/* main div  */}
-        
-          
-        
-         {loading?(<div className="text-center">Loading...</div>) : error ? (
-           <div className="text-red-500">{error}</div>
-         ) : (
-           <div className="main flex justify-center items-center gap-2  p-4  w-full max-h-screen  md:flex-row flex-col">
-            {/* //weather info */}
-            <div className="one bg-gray-600 p-4 rounded-md w-1/2 h-full  md:flex-row">
-              <h1>{weather?.name} </h1>
-              <h2>{weather?.main?.temp}°C</h2>
-              <h1>🌤️</h1>
+
+          {loading ? (
+            <div className="text-center">Loading...</div>
+          ) : error ? (
+            <div className="text-red-500">{error}</div>
+          ) : (
+            <div className="main flex justify-center items-center gap-2  p-4  w-full max-h-screen  md:flex-row flex-col">
+              {/* //weather info */}
+              <div className="one bg-gray-600 p-4 rounded-md w-1/2 h-full  md:flex-row">
+                <h1>{weather?.name} </h1>
+                <h2>{weather?.main?.temp}°C</h2>
+                <h1>🌤️</h1>
+              </div>
+              <div className="second  p-4 rounded-md w-1/2   h-full flex flex-col  items-start gap-2">
+                <h2 className="border-2 mx-2 p-2">
+                  Humidity: <span>{weather?.main?.humidity}% </span>
+                </h2>
+                <h2 className="border-2 mx-2 p-2">
+                  Wind : <span>{weather?.wind?.speed}m/s</span>
+                </h2>
+                <h2 className="border-2 mx-2 p-2">
+                  <span> Feels Like: {weather?.main?.feels_like}°C</span>
+                </h2>
+                {/* weather description */}
+                <h2>
+                  {" "}
+                  Weather Description : {weather?.weather?.[0]?.description}
+                </h2>
+              </div>
             </div>
-            <div className="second  p-4 rounded-md w-1/2   h-full flex flex-col  items-start gap-2">
-              <h2 className="border-2 mx-2 p-2">
-                Humidity: <span>{weather?.main?.humidity}% </span>
-              </h2>
-              <h2 className="border-2 mx-2 p-2">
-                Wind : <span>{weather?.wind?.speed}m/s</span>
-              </h2>
-              <h2 className="border-2 mx-2 p-2">
-                <span> Feels Like: {weather?.main?.feels_like}°C</span>
-              </h2>
-              {/* weather description */}
-              <h2>
-                {" "}
-                Weather Description : {weather?.weather?.[0]?.description}
-              </h2>
-            </div>
-          </div>
-         )}
+          )}
           {/* forecast */}
         </div>
         <div className="forecast  p-4 rounded-md w-full  h-screen bg-grey-200">
