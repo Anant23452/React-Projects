@@ -3,17 +3,16 @@ import "./App.css";
 
 function App() {
   const [place, setPlace] = useState("");
-  const defaultCity = "Delhi";
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   useEffect(() => {
-    fetchWeather(defaultCity);
+    fetchWeather("Delhi");
   }, []);
   let apiKey = "b8151c19872033488d3a87b28b67b210";
 
-  async function fetchWeather() {
-    if (place.trim() === "") {
+  async function fetchWeather(city) {
+    if (city.trim() === "") {
       setError("Please enter a location");
       return;
     }
@@ -22,7 +21,7 @@ function App() {
     setError("");
 
     try {
-      const url = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apiKey}&units=metric`;
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
       const response = await fetch(url);
       const data = await response.json();
       if (!response.ok) {
@@ -52,7 +51,7 @@ function App() {
               action=""
               onSubmit={(e) => {
                 e.preventDefault();
-                fetchWeather();
+                fetchWeather(place);
               }}
             >
               <input
