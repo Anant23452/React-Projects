@@ -18,10 +18,10 @@ function App() {
       const response = await fetch(url);
       if (!response.ok) {
        
+        const data = await response.json();
         setError(data.message || "Unable to fetch weather");
         return;
       }
-      const data = await response.json();
       setWeather(data);
     } catch (error) {
       setWeather(null);
