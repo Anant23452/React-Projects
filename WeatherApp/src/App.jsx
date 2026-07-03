@@ -56,7 +56,7 @@ function App() {
       {/* //weather info */}
       <div className="one bg-gray-600 p-4 rounded-md w-1/2 h-full  md:flex-row">
       <h1>{weather?.name} </h1>
-      <h2>{weather?.main.temp}</h2>
+      <h2>{weather?.main.temp}°C</h2>
       <h1>🌤️</h1>
       
       </div>
