@@ -6,15 +6,9 @@ import './App.css'
 
 function App() {
   
-      const[place,setPlace]=useState('')
+      const[place,setPlace]=useState('Mumbai')
       const[weather,setWeather]=useState(null)
-
-
-      // async function getWeather(){
-      //   let response = await fetch();
-      //   let data = response.json()
-      //   setWeather(data)
-      // }
+      let apiKey=b8151c19872033488d3a87b28b67b210;
      
 
       
@@ -23,6 +17,7 @@ function App() {
         const response = await fetch(url);
         // console.log(response)
         const data=await response.json();
+        console.log(data);
         setWeather(data);
        }
        
