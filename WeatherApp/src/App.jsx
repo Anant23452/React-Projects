@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import './App.css'
+import { use } from 'react'
 
       
 
 function App() {
   
-
+      const[place,setPlace]=useState('')
   return (
     <>
     <div className="parent">
@@ -16,18 +17,20 @@ function App() {
       {/* //search box */}
 
       <div className="search border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-800 border-b-2 ">
-         <input type="text" placeholder='search location' label="Search Location" className=" bg-white p-3 my-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500  z-10 " />
+         <form action="">
+          <input type="text" placeholder='search location' label="Search Location" className=" bg-white p-3 my-2 rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500  z-10 " value={place} onChange={(e)=>setPlace(e.value.target)} />
          <button className="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-600">Search</button>
+         </form>
       </div>
 
       {/* //weather conversion  */}
-      <div className="weather-conversion  my-2 flex justify-center items-center gap-2">
+      <div className="weather-conversion  my-2 flex justify-center items-center gap-2 ">
         <button className="bg-blue-500 text-white p-2 px-4 rounded-md hover:bg-blue-600">°C</button>
         <button className="bg-blue-500 text-white p-2 px-4 rounded-md hover:bg-blue-600">°F</button>
       </div>
 
     {/* main div  */}
-    <div className="main flex justify-center items-center gap-2  p-4  w-full max-h-screen">
+    <div className="main flex justify-center items-center gap-2  p-4  w-full max-h-screen  md:flex-row flex-col">
 
       {/* //weather info */}
       <div className="one bg-gray-600 p-4 rounded-md w-1/2 h-full  md:flex-row">
@@ -45,6 +48,7 @@ function App() {
       </div>
     </div>
      {/* forecast */}
+     </div>
       <div className="forecast  p-4 rounded-md w-full  h-screen bg-grey-200">
         <h1>5-Day Forecast</h1>
         <div className="forecast-cards flex justify-center items-center gap-2">
@@ -74,7 +78,6 @@ function App() {
             <h1>🌧️</h1>
           </div>  
         </div>
-     </div>
      </div>
     </div>
     </>
