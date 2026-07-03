@@ -8,6 +8,8 @@ function App() {
   
       const[place,setPlace]=useState('')
       const[weather,setWeather]=useState(null)
+      const[loading,setLoading]=useState(false);
+      const[error,setError]=useState(false);
       let apiKey="b8151c19872033488d3a87b28b67b210";
      
 
@@ -61,9 +63,9 @@ function App() {
       
       </div>
       <div className="second  p-4 rounded-md w-1/2   h-full flex flex-col  items-start gap-2">
-      <h2 className='border-2 mx-2 p-2'>Humidity: <span>{weather?.main.humidity} </span></h2>
-      <h2 className='border-2 mx-2 p-2'>Wind : <span>{weather?.wind.speed} </span></h2>
-      <h2 className='border-2 mx-2 p-2'>Feels Like : <span>{weather?.main.feels_like} </span></h2>
+      <h2 className='border-2 mx-2 p-2'>Humidity: <span>{weather?.main?.humidity}% </span></h2>
+      <h2 className='border-2 mx-2 p-2'>Wind : <span>{weather?.wind?.speed}m/s</span></h2>
+      <h2 className='border-2 mx-2 p-2'><span> Feels Like: {weather?.main?.feels_like}°C</span></h2>
       {/* weather description */}
       <h2>Weather Description : {weather?.weather[0].description}</h2>
       </div>
