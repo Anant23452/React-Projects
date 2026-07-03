@@ -5,7 +5,7 @@ function App() {
   const [place, setPlace] = useState("");
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState("");
   let apiKey = "b8151c19872033488d3a87b28b67b210";
 
   async function fetchWeather() {
@@ -14,10 +14,12 @@ function App() {
     try {
       const url = `https://api.openweathermap.org/data/2.5/weather?q=${place}&appid=${apiKey}&units=metric`;
       const response = await fetch(url);
+      if (!response.ok) {
+        console.log("City not found");
+        return;
+      }
       const data = await response.json();
       setWeather(data);
-      console.log(response);
-console.log(data);
     } catch (error) {
       console.log("error");
     }
@@ -81,7 +83,10 @@ console.log(data);
                 <span> Feels Like: {weather?.main?.feels_like}°C</span>
               </h2>
               {/* weather description */}
-              <h2>  Weather Description : {weather?.weather?.[0]?.description}</h2>
+              <h2>
+                {" "}
+                Weather Description : {weather?.weather?.[0]?.description}
+              </h2>
             </div>
           </div>
           {/* forecast */}
