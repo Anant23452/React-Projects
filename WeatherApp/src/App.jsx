@@ -55,17 +55,17 @@ function App() {
 
       {/* //weather info */}
       <div className="one bg-gray-600 p-4 rounded-md w-1/2 h-full  md:flex-row">
-      <h1>Delhi</h1>
-      <h2>30°C</h2>
+      <h1>{weather?.name} </h1>
+      <h2>{weather?.main.temp}</h2>
       <h1>🌤️</h1>
       
       </div>
       <div className="second  p-4 rounded-md w-1/2   h-full flex flex-col  items-start gap-2">
-      <h2 className='border-2 mx-2 p-2'>Humidity: <span>35%</span></h2>
-      <h2 className='border-2 mx-2 p-2'>Wind : <span>12 km/h</span></h2>
-      <h2 className='border-2 mx-2 p-2'>Feels Like : <span>35°C</span></h2>
+      <h2 className='border-2 mx-2 p-2'>Humidity: <span>{weather?.main.humidity} </span></h2>
+      <h2 className='border-2 mx-2 p-2'>Wind : <span>{weather?.wind.speed} </span></h2>
+      <h2 className='border-2 mx-2 p-2'>Feels Like : <span>{weather?.main.feels_like} </span></h2>
       {/* weather description */}
-      <h2>Weather Description : Clear Sky</h2>
+      <h2>Weather Description : {weather?.weather[0].description}</h2>
       </div>
     </div>
      {/* forecast */}
