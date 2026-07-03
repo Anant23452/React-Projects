@@ -6,7 +6,7 @@ import './App.css'
 
 function App() {
   
-      const[place,setPlace]=useState('Mumbai')
+      const[place,setPlace]=useState('')
       const[weather,setWeather]=useState(null)
       let apiKey="b8151c19872033488d3a87b28b67b210";
      
