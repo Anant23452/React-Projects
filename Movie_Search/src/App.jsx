@@ -11,6 +11,11 @@ function App() {
   return (
    <>
    <h1>Movie Search& Watchlist</h1>
+    <Routes>
+      <Route path="/" element ={<Home />} ></Route>
+      <Route path="/watchlist" element ={<Watchlist />} ></Route>
+      <Route path="/movie/:id" element ={<MovieDetails />} ></Route>
+    </Routes>
    
    </>
   )
