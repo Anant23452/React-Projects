@@ -11,8 +11,23 @@ function home() {
         e.preventDefault();
         fetchMovies(search);
     }
-    async function fetchMovies(movieName){
+    async function fetchMovies(search){
         console.log(API_KEY);
+        setLoading(true);
+        setError("");
+        try{
+            const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`)
+            const data = await response.json();
+            if(!response.ok){
+                //handle error
+                setError(data.Error  || "something went wrong");
+                return;
+            }
+        }catch(error){
+            setError("Failed to fetch movies");
+        }finally{
+            setLoading(false);
+        }
     }
   return (
   <div className="home-parent mx-auto w-full max-w-xl">
