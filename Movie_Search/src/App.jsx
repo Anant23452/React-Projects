@@ -15,11 +15,14 @@ function App() {
     <Link to="/">Home</Link>
     {"|"}
     <Link to="/watchlist">Watchlist</Link>
+    {"|"}
+    <Link to="/movie/:id">Movie Details</Link>
    </div>
     <Routes>
       <Route path="/" element ={<Home />} ></Route>
       <Route path="/watchlist" element ={<Watchlist />} ></Route>
       <Route path="/movie/:id" element ={<MovieDetails />} ></Route>
+
     </Routes>
    
    </>
