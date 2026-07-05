@@ -3,9 +3,15 @@ import{useState,useEffect} from 'react'
 
 function home() {
     const [search,setSearch]=useState("");
+    const [movies,setMovies] =useState([]);
+    const[loading,setLoading]=useState(false);
+    const[error,setError] = useState("");
     function handleSubmit(e){
         e.preventDefault();
-        console.log(search);
+        fetchMovies(search);
+    }
+    async function fetchMovies(movieName){
+        
     }
   return (
   <div className="home-parent mx-auto w-full max-w-xl">
