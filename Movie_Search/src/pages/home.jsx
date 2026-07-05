@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { MovieCard } from "../components/MovieCard";
 
-function home() {
+function home({addToWatchlist}) {
   const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
   const [search, setSearch] = useState("");
   const [movies, setMovies] = useState([]);
@@ -80,6 +80,7 @@ function home() {
             <MovieCard 
             key={movie.imdbID}
             movie={movie}
+            addToWatchlist={addToWatchlist}
             />
           ))}
         </div>
