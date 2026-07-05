@@ -11,7 +11,7 @@ function App() {
   return (
    <>
    <h1>Movie Search& Watchlist</h1>
-   <div className="nav">
+   <div className="nav bg-gray-800 p-4 text-white flex justify-center space-x-4 gap-3">
     <Link to="/">Home</Link>
     {"|"}
     <Link to="/watchlist">Watchlist</Link>
