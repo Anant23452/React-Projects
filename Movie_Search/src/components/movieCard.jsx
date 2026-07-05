@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const movieCard = () => {
+export const MovieCard = () => {
   return (
-    <div>movieCard</div>
+    <div className="bg-blue-600 p-4 rounded-lg shadow-lg">movieCard</div>
   )
 }
