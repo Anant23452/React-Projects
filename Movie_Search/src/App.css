@@ -3,3 +3,8 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.main-content {
+  margin-top: 2.5rem;
+  padding-inline: 1rem;
+}

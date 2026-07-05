@@ -4,7 +4,7 @@ import{useState,useEffect} from 'react'
 function home() {
     const [search,setSearch]=useState("");
   return (
-  <div className="home-parent mt-14 px-4">
+  <div className="home-parent">
       <form onSubmit={(e)=>{e.preventDefault()}
     }
      className="bg-gray-600 "
