@@ -12,7 +12,7 @@ function home() {
         fetchMovies(search);
     }
     async function fetchMovies(movieName){
-
+        console.log(API_KEY);
     }
   return (
   <div className="home-parent mx-auto w-full max-w-xl">
