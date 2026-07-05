@@ -66,17 +66,20 @@ function home() {
 
       {/* loading feature */}
       {loading && <h2>Loading...</h2>}
-      <div className="movie">
-        {movies.map((movie)=>{
-            return(
-                <div className="key"key={movie.imdbID} >
-                    <img src={movie.Poster} alt={movie.Title} />
-                    <h2>{movie.Title}</h2>
-                    <p>{movie.Year}</p>
-
+      <div className="movie grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 bg-gray-800 p-4">
+        {error ? (
+            <p>{error}</p>
+        ) : (
+            movies.map((movie) => {
+              return (
+                <div className="key" key={movie.imdbID}>
+                  <img src={movie.Poster} alt={movie.Title} />
+                  <h2>{movie.Title}</h2>
+                  <p>{movie.Year}</p>
                 </div>
-            )
-        })}
+              )
+            })
+        )}
       </div>
     </div>
   );
