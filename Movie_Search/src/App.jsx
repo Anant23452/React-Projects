@@ -11,6 +11,11 @@ function App() {
   return (
    <>
    <h1>Movie Search& Watchlist</h1>
+   <div className="nav">
+    <Link to="/">Home</Link>
+    {"|"}
+    <Link to="/watchlist">Watchlist</Link>
+   </div>
     <Routes>
       <Route path="/" element ={<Home />} ></Route>
       <Route path="/watchlist" element ={<Watchlist />} ></Route>
