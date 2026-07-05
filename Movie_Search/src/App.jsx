@@ -1,10 +1,16 @@
 import{Routes,Route,Link} from 'react-router-dom'
+import {useState} from  'react'
 import Home from  './pages/home'
 import Watchlist from './pages/watchlist'
 import MovieDetails from './pages/movieDetail'
 
 function App() {
-  
+   //watchlist state
+   const [watchlist, setWatchlist]=useState([]);
+  //  function to add movie to watchlist
+   function addToWatchlist(movie){
+    setWatchlist((prev)=>[...prev,movie])
+   }
 
   return (
    <>
@@ -19,7 +25,9 @@ function App() {
      </nav>
      <main className="px-4">
        <Routes>
-         <Route path="/" element={<Home />} />
+         <Route path="/" element={<Home
+          addToWatchlist={addToWatchlist}
+         />} />
          <Route path="/watchlist" element={<Watchlist />} />
          <Route path="/movie/:id" element={<MovieDetails />} />
        </Routes>
