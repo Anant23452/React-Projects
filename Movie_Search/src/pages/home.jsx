@@ -2,6 +2,7 @@ import React from 'react'
 import{useState,useEffect} from 'react'
 
 function home() {
+    const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
     const [search,setSearch]=useState("");
     const [movies,setMovies] =useState([]);
     const[loading,setLoading]=useState(false);
@@ -11,7 +12,7 @@ function home() {
         fetchMovies(search);
     }
     async function fetchMovies(movieName){
-        
+
     }
   return (
   <div className="home-parent mx-auto w-full max-w-xl">
