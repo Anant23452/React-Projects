@@ -8,7 +8,7 @@ export const MovieCard = ({movie, addToWatchlist}) => {
       <h2 className="text-lg font-semibold">{movie.Title}</h2>
       {/* <h3>imdb: {movie.imdbID}</h3> */}
       <p className="text-gray-400">{movie.Year}</p>
-      <button onClick={()=>addToWatchlist(movie)} className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700">
+      <button onClick={()=>addToWatchlist(movie)} className="bg-green-500 text-white px-2 py-2 rounded hover:bg-green-700">
         Add to Watchlist
       </button> 
     </div>
