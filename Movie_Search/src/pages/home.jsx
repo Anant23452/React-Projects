@@ -76,7 +76,7 @@ function home() {
         </div>
       ) : (
         <div className="movie grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 bg-gray-800 p-4">
-          <MovieCard />
+          <MovieCard name="batman" year="1989" />
         </div>
       )}
     </div>
