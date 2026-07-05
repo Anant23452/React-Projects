@@ -41,12 +41,12 @@ function home() {
     }
   }
   return (
-    <div className="home-parent mx-auto w-full max-w-xl">
+    <div className="home-parent mx-auto w-full  bg-gray-600  text-white">
 
         {/* search button */}
       <form
         onSubmit={handleSubmit}
-        className="flex flex-wrap items-center justify-center gap-3 rounded-lg bg-gray-600 p-3"
+        className="flex flex-wrap items-center justify-center gap-3 rounded-lg bg-gray-600 p-3 max-w-xl mx-auto"
       >
         <input
           type="text"
@@ -65,22 +65,28 @@ function home() {
 
 
       {/* loading feature */}
-      {loading && <h2>Loading...</h2>}
-      <div className="movie grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 bg-gray-800 p-4">
-        {error ? (
-            <p>{error}</p>
-        ) : (
-            movies.map((movie) => {
-              return (
-                <div className="key" key={movie.imdbID}>
-                  <img src={movie.Poster} alt={movie.Title} />
-                  <h2>{movie.Title}</h2>
-                  <p>{movie.Year}</p>
-                </div>
-              )
-            })
-        )}
-      </div>
+      {loading && <h2 className="py-4 text-center">Loading...</h2>}
+
+      {error ? (
+        <div className="flex w-full justify-center py-8">
+          
+            <p className="text-red-500">{error}</p>
+          
+        </div>
+      ) : (
+        <div className="movie grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 bg-gray-800 p-4">
+          {movies.map((movie) => (
+            <div className="key overflow-hidden rounded-lg bg-gray-700 shadow-lg transition-transform duration-300 hover:scale-105" key={movie.imdbID}>
+              <img src={movie.Poster} alt={movie.Title}
+              className="w-full h-auto object-cover" />
+              <div className="p-4">
+                <h2 className="text-lg font-semibold">{movie.Title}</h2>
+              <p className="text-gray-400">{movie.Year}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
