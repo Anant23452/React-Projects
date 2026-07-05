@@ -1,36 +1,49 @@
-import React from 'react'
-import{useState,useEffect} from 'react'
+import React from "react";
+import { useState, useEffect } from "react";
 
 function home() {
-    const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
-    const [search,setSearch]=useState("");
-    const [movies,setMovies] =useState([]);
-    const[loading,setLoading]=useState(false);
-    const[error,setError] = useState("");
-    function handleSubmit(e){
-        e.preventDefault();
-        fetchMovies(search);
+  const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+  const [search, setSearch] = useState("");
+  const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+
+//   function 
+  function handleSubmit(e) {
+    e.preventDefault();
+    fetchMovies(search);
+  }
+
+  //function
+  async function fetchMovies(search) {
+    console.log(API_KEY);
+    setLoading(true);
+    setError("");
+    try {
+      const response = await fetch(
+        `https://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`,
+      );
+      const data = await response.json();
+      console.log(data)
+      if (data.Response === "False") {
+        //handle error
+        setMovies([]);
+        setError(data.Error || "something went wrong");
+        return;
+    } else {
+        setMovies(data.Search);
     }
-    async function fetchMovies(search){
-        console.log(API_KEY);
-        setLoading(true);
-        setError("");
-        try{
-            const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`)
-            const data = await response.json();
-            if(!response.ok){
-                //handle error
-                setError(data.Error  || "something went wrong");
-                return;
-            }
-        }catch(error){
-            setError("Failed to fetch movies");
-        }finally{
-            setLoading(false);
-        }
+} catch (error) {
+    setError("Failed to fetch movies");
+} finally {
+        
+      setLoading(false);
     }
+  }
   return (
-  <div className="home-parent mx-auto w-full max-w-xl">
+    <div className="home-parent mx-auto w-full max-w-xl">
+
+        {/* search button */}
       <form
         onSubmit={handleSubmit}
         className="flex flex-wrap items-center justify-center gap-3 rounded-lg bg-gray-600 p-3"
@@ -49,8 +62,24 @@ function home() {
           Search
         </button>
       </form>
-  </div>
-  )
+
+
+      {/* loading feature */}
+      {loading && <h2>Loading...</h2>}
+      <div className="movie">
+        {movies.map((movie)=>{
+            return(
+                <div className="key"key={movie.imdbID} >
+                    <img src={movie.Poster} alt={movie.Title} />
+                    <h2>{movie.Title}</h2>
+                    <p>{movie.Year}</p>
+
+                </div>
+            )
+        })}
+      </div>
+    </div>
+  );
 }
 
-export default home
+export default home;
