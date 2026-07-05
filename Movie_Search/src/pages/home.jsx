@@ -3,11 +3,15 @@ import{useState,useEffect} from 'react'
 
 function home() {
     const [search,setSearch]=useState("");
+    function handleSubmit(e){
+        e.preventDefault();
+        console.log(search);
+    }
   return (
   <div className="home-parent mx-auto w-full max-w-xl">
       <form
-        onSubmit={(e) => e.preventDefault()}
-        className="flex flex-wrap items-center justify-center gap-3 rounded-lg bg-gray-600 p-4"
+        onSubmit={handleSubmit}
+        className="flex flex-wrap items-center justify-center gap-3 rounded-lg bg-gray-600 p-3"
       >
         <input
           type="text"

@@ -9,7 +9,7 @@ function App() {
   return (
    <>
    <h1>Movie Search& Watchlist</h1>
-   <div className="flex flex-col gap-10">
+   <div className="flex flex-col gap-3">
      <nav className="nav bg-gray-800 p-4 text-white flex justify-center space-x-4 gap-3">
       <Link to="/">Home</Link>
       {"|"}
