@@ -1,24 +1,29 @@
 import{Routes,Route,Link} from 'react-router-dom'
-import {useState} from  'react'
+import {useState,useEffect} from  'react'
 import Home from  './pages/home'
 import Watchlist from './pages/watchlist'
 import MovieDetails from './pages/movieDetail'
 
 
 function App() {
+//watchlist state
+   const [watchlist, setWatchlist]=useState([]);l
 
-   //watchlist state
-   const [watchlist, setWatchlist]=useState([]);
+
+
+   useEffect(()=>{
+      localStorage.setItem(
+        'watchlist',
+      JSON.stringify(watchlist))
+    },[watchlist])
+
+   
   //  function to add movie to watchlist
    function addToWatchlist(movie){
 
     //useEffect
 
-    useEffect(()=>{
-      localStorage.setItem(
-        'watchlist',
-      JSON.stringify(watchlist))
-    },[watchlist])
+   
 
     // function to add movie to watchlist
     setWatchlist((prev)=>[...prev,movie])
