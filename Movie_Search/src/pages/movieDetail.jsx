@@ -50,9 +50,12 @@ function MovieDetail() {
   }
 
   return (
-    <div className="max-w-5xl mx-auto p-6">
-      <img src={movie.Poster} alt={movie.Title} className="w-72 rounded" />
-      <h1>{movie.Title}</h1>
+    <div className="max-w-4xl mx-auto  flex h-screen ">
+     <div className="imgdiv w-1/2 ">
+       <img src={movie.Poster} alt={movie.Title} className="rounded w-full h-full cover " />
+     </div>
+     <div className="info w-1/2  px-2 text-start flex flex-col gap-3">
+       <h1 className="text-3xl font-bold">{movie.Title}</h1>
       <p>
         <strong>Year</strong>:{movie.Year}
       </p>
@@ -67,7 +70,8 @@ function MovieDetail() {
         <strong>IMDb:</strong> ⭐ {movie.imdbRating}
       </p>
 
-      <p>{movie.Plot}</p>
+      <p className="text-start">{movie.Plot}</p>
+     </div>
     </div>
   );
 }

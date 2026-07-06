@@ -59,6 +59,12 @@ function App() {
       }
     })
    }
+   function removeToWatchlist(id){
+  const newarr=  watchlist.filter((movie)=>{
+    return movie.imdbID!==id;
+  })
+  setWatchlist(newarr)
+   }
 
   return (
    <>
