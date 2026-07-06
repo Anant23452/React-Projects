@@ -3,18 +3,22 @@ import {useState,useEffect} from  'react'
 import Home from  './pages/home'
 import Watchlist from './pages/watchlist'
 import MovieDetails from './pages/movieDetail'
+import { toast } from "react-toastify";
 
 
 function App() {
 //watchlist state
-   const [watchlist, setWatchlist]=useState([]);
+  const [watchlist, setWatchlist] = useState(() => {
+  const saved = localStorage.getItem("watchlist");
+  return saved ? JSON.parse(saved) : [];
+});
 // second useeffect to get the watchlist from local storage when the component mounts
-    useEffect(()=>{
-      const storedWatchlist = localStorage.getItem('watchlist');
-      if(storedWatchlist){
-        setWatchlist(JSON.parse(storedWatchlist))
-      }
-    },[])
+    // useEffect(()=>{
+    //   const storedWatchlist = localStorage.getItem('watchlist');
+    //   if(storedWatchlist){
+    //     setWatchlist(JSON.parse(storedWatchlist))
+    //   }
+    // },[])
 
 
 
@@ -30,13 +34,23 @@ function App() {
    
   //  function to add movie to watchlist
    function addToWatchlist(movie){
-
-    //useEffect
+    console.log("movie added to watchlist",movie)
+    
 
    
 
     // function to add movie to watchlist
-    setWatchlist((prev)=>[...prev,movie])
+    setWatchlist((prev)=>{
+      // check if movie is already in watchlist
+      const isMovieInWatchlist= prev.some((item)=>item.imdbID===movie.imdbID);
+      if(isMovieInWatchlist){
+        toast.error("Movie is already in watchlist");
+        return prev;
+      }else{
+        toast.success("Movie added to watchlist!");
+        return [...prev,movie];
+      }
+    })
    }
 
   return (
