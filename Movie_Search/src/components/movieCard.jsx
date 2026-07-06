@@ -7,10 +7,10 @@ export const MovieCard = ({movie, addToWatchlist,removeToWatchlist,isWatchlist})
     <div className="bg-gray-900 p-4 rounded-lg shadow-lg">
      <Link to={`/movie/${movie.imdbID}`}> 
       <img 
-      src = {movie.Poster !=="N/A"?movie.poster:placeholder-image-url} 
+      src = {movie.Poster !=="N/A"?movie.Poster:placeholder-image-url} 
       alt ={movie.Title} 
       className="w-full h-auto object-cover mb-4 rounded">
-        
+
       </img>
       </Link>
       <h2 className="text-lg font-semibold">{movie.Title}</h2>

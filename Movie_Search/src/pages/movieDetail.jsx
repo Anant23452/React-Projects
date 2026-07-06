@@ -73,7 +73,10 @@ function MovieDetail() {
       </p>
 
       <p className="text-start">{movie.Plot}</p>
-      <button onClick={() => navigate(-1)}>
+      <button 
+      onClick={() => navigate(-1)}
+      className="bg-blue-800 hover:bg-blue-600 p-2 text-white"
+      >
   ← Back
 </button>
      </div>
