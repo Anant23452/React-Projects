@@ -4,11 +4,13 @@ import Home from  './pages/home'
 import Watchlist from './pages/watchlist'
 import MovieDetails from './pages/movieDetail'
 
+
 function App() {
    //watchlist state
    const [watchlist, setWatchlist]=useState([]);
   //  function to add movie to watchlist
    function addToWatchlist(movie){
+    // alert(`${movie.Title} has been added to your watchlist`)
     setWatchlist((prev)=>[...prev,movie])
    }
 
@@ -28,7 +30,7 @@ function App() {
          <Route path="/" element={<Home
           addToWatchlist={addToWatchlist}
          />} />
-         <Route path="/watchlist" element={<Watchlist />} />
+         <Route path="/watchlist" element={<Watchlist watchlist={watchlist} />} />
          <Route path="/movie/:id" element={<MovieDetails />} />
        </Routes>
      </main>
