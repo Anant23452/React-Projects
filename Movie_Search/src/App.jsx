@@ -6,11 +6,21 @@ import MovieDetails from './pages/movieDetail'
 
 
 function App() {
+
    //watchlist state
    const [watchlist, setWatchlist]=useState([]);
   //  function to add movie to watchlist
    function addToWatchlist(movie){
-    // alert(`${movie.Title} has been added to your watchlist`)
+
+    //useEffect
+
+    useEffect(()=>{
+      localStorage.setItem(
+        'watchlist',
+      JSON.stringify(watchlist))
+    },[watchlist])
+
+    // function to add movie to watchlist
     setWatchlist((prev)=>[...prev,movie])
    }
 
