@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 
@@ -7,6 +7,7 @@ function MovieDetail() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { id } = useParams();
+  const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
   useEffect(()=>{
     fetchMovie()
@@ -14,7 +15,7 @@ function MovieDetail() {
 
 
 
- async function fetchMovie(id) {
+ async function fetchMovie() {
 
 
     setLoading(true);
@@ -25,7 +26,7 @@ function MovieDetail() {
       const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`,)
       const data = await response.json();
       console.log(data)
-      if (data.response === true) {
+      if (data.Response === "true") {
         setMovie(data)
 
       }
@@ -49,11 +50,11 @@ function MovieDetail() {
   if(!movie){
     return <h2>Movie not found</h2>
   }
-}
+
 
 return (
   <div className="max-w-5xl mx-auto p-6" >
-    <img src={movie.Title} alt={movie.Poster} className='w-72 rounded' />
+    <img src={movie.Poster} alt={movie.Title} className='w-72 rounded' />
     <h1>{movie.Title}</h1>
     <p><strong>Year</strong>:{movie.Year}</p>
     
@@ -64,6 +65,6 @@ return (
     <p>{movie.Plot}</p>
   </div>
 )
-
+}
 
 export default MovieDetail
