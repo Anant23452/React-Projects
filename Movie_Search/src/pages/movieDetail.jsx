@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, } from "react";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function MovieDetail() {
   const [movie, setMovie] = useState(null);
@@ -7,6 +8,7 @@ function MovieDetail() {
   const [error, setError] = useState("");
   const { id } = useParams();
   const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchMovie();
@@ -71,6 +73,9 @@ function MovieDetail() {
       </p>
 
       <p className="text-start">{movie.Plot}</p>
+      <button onClick={() => navigate(-1)}>
+  ← Back
+</button>
      </div>
     </div>
   );
