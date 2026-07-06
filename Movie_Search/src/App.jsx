@@ -8,6 +8,14 @@ import MovieDetails from './pages/movieDetail'
 function App() {
 //watchlist state
    const [watchlist, setWatchlist]=useState([]);
+// second useeffect to get the watchlist from local storage when the component mounts
+    useEffect(()=>{
+      const storedWatchlist = localStorage.getItem('watchlist');
+      if(storedWatchlist){
+        setWatchlist(JSON.parse(storedWatchlist))
+      }
+    },[])
+
 
 
 //first useeffect to save the watchlist to local storage whenever it changes
@@ -17,13 +25,7 @@ function App() {
       JSON.stringify(watchlist))
     },[watchlist])
 
-    // second useeffect to get the watchlist from local storage when the component mounts
-    useEffect(()=>{
-      const storedWatchlist = localStorage.getItem('watchlist');
-      if(storedWatchlist){
-        setWatchlist(JSON.parse(storedWatchlist))
-      }
-    },[])
+    
 
    
   //  function to add movie to watchlist
