@@ -12,6 +12,7 @@ function MovieDetail() {
   useEffect(()=>{
     fetchMovie()
   },[id])
+  console.log(id);
 
 
 
@@ -26,7 +27,7 @@ function MovieDetail() {
       const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`,)
       const data = await response.json();
       console.log(data)
-      if (data.Response === "true") {
+      if (data.Response === "True") {
         setMovie(data)
 
       }
@@ -40,13 +41,15 @@ function MovieDetail() {
     }finally{
       setLoading(false)
     }
+    console.log(id);
+console.log(API_KEY);
   }
   if(loading){
     return <h1>Loading👀👀</h1>
   }
   if(error){
     return <h2>{error}</h2>
-  }
+  }console.log("movie state:", movie);
   if(!movie){
     return <h2>Movie not found</h2>
   }
