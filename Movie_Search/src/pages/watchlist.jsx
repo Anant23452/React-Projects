@@ -2,6 +2,13 @@ import React from 'react'
 import { MovieCard } from '../components/MovieCard'
 
 function watchlist({watchlist,removeToWatchlist}) {
+  if (watchlist.length === 0) {
+  return (
+    <h2 className="text-center text-gray-500">
+      ❤️ Your watchlist is empty.
+    </h2>
+  );
+}
   return (
     <>
     <div className = "watchlist-parent mx-auto w-full bg-gray-600 text-white">

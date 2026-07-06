@@ -60,11 +60,10 @@ function App() {
     })
    }
    function removeToWatchlist(id){
-    setWatchlist((prev) =>
-    prev.filter((movie) => movie.imdbID !== id)
-  );
-  
-  toast.success("Movie removed from watchlist!");
+    const removed = watchlist.find((movie) => movie.imdbID === id);
+    setWatchlist((prev) => prev.filter((movie) => movie.imdbID !== id));
+    const title = removed?.Title || removed?.title || 'Movie';
+    toast.success(`${title} removed from watchlist!`);
    }
 
   return (
