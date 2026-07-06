@@ -19,6 +19,11 @@ function home({addToWatchlist}) {
   "Avengers",
   "Spider-Man"
 ];
+const randomMovie=recommendations[Math.floor(Math.random()*recommendations.length)]
+
+useEffect(()=>{
+  fetchMovies(randomMovie)
+},[])
 
 //   function 
   function handleSubmit(e) {
