@@ -9,6 +9,17 @@ function home({addToWatchlist}) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
+  const recommendations = [
+  "Oppenheimer",
+  "Dune",
+  "Barbie",
+  "Inside Out",
+  "Interstellar",
+  "John Wick",
+  "Avengers",
+  "Spider-Man"
+];
+
 //   function 
   function handleSubmit(e) {
     e.preventDefault();
