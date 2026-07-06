@@ -24,6 +24,7 @@ function MovieDetail() {
     try {
       const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`,)
       const data = await response.json();
+      console.log(data)
       if (data.response === true) {
         setMovie(data)
 

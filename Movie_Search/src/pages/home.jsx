@@ -17,7 +17,7 @@ function home({addToWatchlist}) {
 
   //function
   async function fetchMovies(search) {
-    console.log(API_KEY);
+    // console.log(API_KEY);
     setLoading(true);
     setError("");
     try {
@@ -25,7 +25,7 @@ function home({addToWatchlist}) {
         `https://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`,
       );
       const data = await response.json();
-      console.log(data)
+      // console.log(data)
       if (data.Response === "False") {
         //handle error
         setMovies([]);
