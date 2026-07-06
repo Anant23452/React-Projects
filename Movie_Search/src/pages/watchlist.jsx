@@ -1,6 +1,6 @@
 import React from 'react'
 
-function watchlist({watchlist}) {
+function watchlist({watchlist,removeToWatchlist}) {
   return (
     <>
     <div className = "watchlist-parent mx-auto w-full bg-gray-600 text-white">
@@ -11,6 +11,7 @@ function watchlist({watchlist}) {
             <img src={movie.Poster} alt={movie.Title}></img>
             <h2 className="text-lg font-semibold">{movie.Title}</h2>
             <p className="text-gray-400">{movie.Year}</p>
+            <button onClick={()=>removeToWatchlist()} className='bg-red-600 hover:bg-red400 text-white p-1 rounded'>Remove</button>
           </div>
         ))}
         </div>

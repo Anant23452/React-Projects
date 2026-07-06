@@ -60,10 +60,11 @@ function App() {
     })
    }
    function removeToWatchlist(id){
-  const newarr=  watchlist.filter((movie)=>{
-    return movie.imdbID!==id;
-  })
-  setWatchlist(newarr)
+    setWatchlist((prev) =>
+    prev.filter((movie) => movie.imdbID !== id)
+  );
+  
+  toast.success("Movie removed from watchlist!");
    }
 
   return (
@@ -82,7 +83,7 @@ function App() {
          <Route path="/" element={<Home
           addToWatchlist={addToWatchlist}
          />} />
-         <Route path="/watchlist" element={<Watchlist watchlist={watchlist} />} />
+         <Route path="/watchlist" element={<Watchlist watchlist={watchlist} removeToWatchlist={removeToWatchlist} />} />
          <Route path="/movie/:id" element={<MovieDetails />} />
        </Routes>
      </main>
