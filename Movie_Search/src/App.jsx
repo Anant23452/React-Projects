@@ -41,8 +41,15 @@ function App() {
 
     // function to add movie to watchlist
     setWatchlist((prev)=>{
+
+       console.log("Previous watchlist:", prev);
+
+
       // check if movie is already in watchlist
       const isMovieInWatchlist= prev.some((item)=>item.imdbID===movie.imdbID);
+
+      console.log("Already exists?", isMovieInWatchlist);
+      
       if(isMovieInWatchlist){
         toast.error("Movie is already in watchlist");
         return prev;
