@@ -2,7 +2,7 @@ import{Routes,Route,Link} from 'react-router-dom'
 import {useState,useEffect} from  'react'
 import Home from  './pages/home'
 import Watchlist from './pages/watchlist'
-import MovieDetails from './pages/movieDetail'
+import MovieDetails from './pages/MovieDetail'
 import { toast } from "react-toastify";
 
 
