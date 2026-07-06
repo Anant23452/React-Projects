@@ -81,6 +81,7 @@ function home({addToWatchlist}) {
             key={movie.imdbID}
             movie={movie}
             addToWatchlist={addToWatchlist}
+            isWatchlist={false}
             />
           ))}
         </div>

@@ -11,7 +11,7 @@ function watchlist({watchlist,removeToWatchlist}) {
             <img src={movie.Poster} alt={movie.Title}></img>
             <h2 className="text-lg font-semibold">{movie.Title}</h2>
             <p className="text-gray-400">{movie.Year}</p>
-            <button onClick={()=>removeToWatchlist()} className='bg-red-600 hover:bg-red400 text-white p-1 rounded'>Remove</button>
+       
           </div>
         ))}
         </div>
