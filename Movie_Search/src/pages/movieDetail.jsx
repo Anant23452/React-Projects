@@ -7,22 +7,31 @@ function MovieDetail() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const { id } = useParams();
-  function fetchMovie(id) {
+
+  useEffect(()=>{
+    fetchMovie()
+  },[id])
+
+
+
+ async function fetchMovie(id) {
 
 
     setLoading(true);
     setError("");
 
-    
+
     try {
-      const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&s=${search}`,)
+      const response = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}`,)
       const data = await response.json();
       if (data.response === true) {
-        setMovie(data.id)
+        setMovie(data)
+
       }
       else {
         setMovie(null);
-        setError("data not found")
+        setError(data.Error)
+        return;
       }
     } catch (error) {
       setError("Fail to Fetch Movies")
@@ -37,6 +46,6 @@ return (
 
   </div>
 )
-}
+
 
 export default MovieDetail
