@@ -52,35 +52,37 @@ function MovieDetail() {
   }
 
   return (
-    <div className="max-w-4xl mx-auto  flex h-screen ">
-     <div className="imgdiv w-1/2 ">
-       <img src={movie.Poster} alt={movie.Title} className="rounded w-full h-full cover " />
-     </div>
-     <div className="info w-1/2  px-2 text-start flex flex-col gap-3">
-       <h1 className="text-3xl font-bold">{movie.Title}</h1>
-      <p>
-        <strong>Year</strong>:{movie.Year}
-      </p>
+   <div className="max-w-4xl mx-auto min-h-screen flex flex-col md:flex-row p-4 gap-6">
+  {/* Image Container */}
+  <div className="imgdiv w-full md:w-1/2">
+    <img 
+      src={movie.Poster} 
+      alt={movie.Title} 
+      className="rounded w-full h-auto object-cover shadow-lg" 
+    />
+  </div>
 
-      <p>
-        <strong>Director:</strong> {movie.Director}
-      </p>
-      <p>
-        <strong>Actors:</strong> {movie.Actors}
-      </p>
-      <p>
-        <strong>IMDb:</strong> ⭐ {movie.imdbRating}
-      </p>
-
-      <p className="text-start">{movie.Plot}</p>
-      <button 
-      onClick={() => navigate(-1)}
-      className="bg-blue-800 hover:bg-blue-600 p-2 text-white"
-      >
-  ← Back
-</button>
-     </div>
+  {/* Info Container */}
+  <div className="info w-full md:w-1/2 text-start flex flex-col gap-3">
+    <h1 className="text-3xl font-bold">{movie.Title}</h1>
+    
+    <div className="space-y-2">
+      <p><strong>Year:</strong> {movie.Year}</p>
+      <p><strong>Director:</strong> {movie.Director}</p>
+      <p><strong>Actors:</strong> {movie.Actors}</p>
+      <p><strong>IMDb:</strong> ⭐ {movie.imdbRating}</p>
     </div>
+
+    <p className="leading-relaxed">{movie.Plot}</p>
+    
+    <button 
+      onClick={() => navigate(-1)}
+      className="bg-blue-800 hover:bg-blue-600 p-2 text-white rounded w-full md:w-fit"
+    >
+      ← Back
+    </button>
+  </div>
+</div>
   );
 }
 
