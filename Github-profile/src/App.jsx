@@ -9,7 +9,27 @@ function App() {
   // fetching data in form of object 
   const [user, setUser] = useState(null);
   // if object not found then it is in null state 
+  async fetchUser(){
+    setError("");
+    setLoading("true");
+    const url = 'https://api.github.com/users/${username}';
+    try{
+      const response = await fetch(url);
+      const data = await response.json();
+      if(data.response===true){
+        setUsername(data);
+      }else{
+        setUsername(null);
+        setError(data.err)
 
+      }
+
+    }catch(err){
+
+    }finally{
+      setLoading(false)
+    }
+  }
   
 
  
@@ -26,6 +46,7 @@ function App() {
        onSubmit={(e)=>{
         e.preventDefault();
         //function
+        fetchUser()
        }}
        >
         <input 
