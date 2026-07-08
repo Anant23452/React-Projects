@@ -29,10 +29,11 @@ function App() {
     } finally {
       setLoading(false);
     }
-  };
-  if(username.trim()==""){
+     if(username.trim()==""){
     setError("Please Enter Username")
   }
+  };
+ 
 
 
   return (
@@ -51,14 +52,19 @@ function App() {
           <input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className="border-2 border-gray-700 hover:border-gray-400 p-2 rounded-xl w-74"
+            className="border-2 border-gray-700 hover:border-gray-400 p-4 rounded-xl w-74 "
             placeholder="username"
           />
-          <button className="bg-blue-600 hover:bg-blue-500 px-2 py-1 rounded-xl">
+          <button className="bg-blue-600 hover:bg-blue-500 p-5 rounded-xl text-white">
             search
           </button>
         </form>
-        {loading && <p className="text-blue-300">Loading..👀👀👀</p> }
+        {loading && (
+          <div className="loading bg-gray-400 w-full h-32 flex justify-center items-center">
+            <h2 className="text-blue-600 text-xl font-semibold animate-pulse">Loading..👀👀👀</h2>
+          </div>
+        ) }
+
         {error && <p className="text-red-500">{error}</p>}
 
 
