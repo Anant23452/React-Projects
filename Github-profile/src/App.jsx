@@ -10,6 +10,7 @@ function App() {
   const [error, setError] = useState("");
   const fetchUser = async () => {
     setError("");
+    setUser(null);
     setLoading(true);
     const url = `https://api.github.com/users/${username}`;
     try {
@@ -23,18 +24,16 @@ function App() {
         setError("User not found");
         return;
       }
-    } catch (err) {
+    } catch (error) {
       setError("Something went wrong");
     } finally {
       setLoading(false);
     }
   };
-  if (error) {
-    return <h1>{error}</h1>;
+  if(username.trim()==""){
+    setError("Please Enter Username")
   }
-  if (loading) {
-    return <h1>Loading 👀👀</h1>;
-  }
+
 
   return (
     <>
@@ -59,7 +58,9 @@ function App() {
             search
           </button>
         </form>
+        {loading && <p className="text-blue-300">Loading..👀👀👀</p> }
         {error && <p className="text-red-500">{error}</p>}
+
 
         {user && (
           <div className="profileCard flex gap-1 bg-blue-200 my-2 w-full h-screen">
