@@ -4,7 +4,7 @@ export default function Profilecard({ user }) {
   if (!user) return null;
 
   return (
-    <div className="w-full max-w-4xl mx-auto my-6 bg-gray-300 rounded-2xl shadow-xl overflow-hidden border border-slate-100 transition-all duration-300 hover:shadow-2xl">
+    <div className="w-full max-w-4xl mx-auto my-6 bg-gray-300 rounded-2xl shadow-xl overflow-hidden border border-slate-100 transition-all duration-300 hover:shadow-2xl ">
       {/* Top Accent Bar */}
       <div className="h-2 bg-gradient-to-r from-blue-500 to-indigo-600 w-full" />
 
