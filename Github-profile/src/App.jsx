@@ -19,16 +19,17 @@ function App() {
       const response = await fetch(url);
       const data = await response.json();
       console.log(data)
-      if(data.response===true){
-        setUsername(data);
+      if(response.ok){
+        setUser(data);
       }else{
-        setUsername(null);
-        setError(data.err)
+        setUser(null);
+      setError(data.message);
+        return;
 
       }
 
     }catch(err){
-
+      setError("Something went wrong");
     }finally{
       setLoading(false)
     }
@@ -60,6 +61,7 @@ function App() {
             />
         <button className='bg-blue-600 hover:bg-blue-500 px-2 py-1 rounded-xl'>search</button>
       </form>
+      {user &&<h1>{user.name}</h1>}
     </div>
     
     </>
