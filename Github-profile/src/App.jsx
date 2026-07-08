@@ -9,13 +9,16 @@ function App() {
   // fetching data in form of object 
   const [user, setUser] = useState(null);
   // if object not found then it is in null state 
-  async fetchUser(){
+  const [loading,setLoading]=useState(false);
+  const [error,setError]=useState("");
+  const fetchUser = async () => {
     setError("");
-    setLoading("true");
-    const url = 'https://api.github.com/users/${username}';
+    setLoading(true);
+    const url = `https://api.github.com/users/${username}`;
     try{
       const response = await fetch(url);
       const data = await response.json();
+      console.log(data)
       if(data.response===true){
         setUsername(data);
       }else{
