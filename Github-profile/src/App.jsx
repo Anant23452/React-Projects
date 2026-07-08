@@ -23,7 +23,7 @@ function App() {
         setUser(data);
       }else{
         setUser(null);
-      setError(data.message);
+      setError("User not found");
         return;
 
       }
@@ -33,6 +33,12 @@ function App() {
     }finally{
       setLoading(false)
     }
+  }
+  if(error){
+    return <h1>{error}</h1>
+  }
+  if(loading){
+    return <h1>Loading 👀👀</h1>
   }
   
 
