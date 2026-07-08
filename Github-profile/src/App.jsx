@@ -54,7 +54,7 @@ function App() {
        >
         <input 
          value={username}
-          onChange={(e)=>e.target.value}
+          onChange={(e)=>setUsername(e.target.value)}
            className='border-2 border-gray-700 hover:border-gray-400 p-2 rounded-xl w-74'
            placeholder='username'
             />
