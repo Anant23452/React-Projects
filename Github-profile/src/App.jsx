@@ -67,7 +67,15 @@ function App() {
             />
         <button className='bg-blue-600 hover:bg-blue-500 px-2 py-1 rounded-xl'>search</button>
       </form>
-      {user &&<h1>{user.name}</h1>}
+      
+        
+        <div className="profileCard flex gap-1 bg-blue-200 my-2 w-full h-screen">
+          <div className="div1"></div>
+        <div className="div2"></div>
+        </div>
+        
+        
+      
     </div>
     
     </>
