@@ -1,5 +1,8 @@
 import { useState } from "react";
 import "./App.css";
+import Searchbar from "./components/Searchbar";
+import Loading from "./components/Loading";
+import Errormsg from "./components/Errormsg";
 
 function App() {
   const [username, setUsername] = useState("");
@@ -9,6 +12,10 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const fetchUser = async () => {
+      if(username.trim()==""){
+    setError("Please Enter Username")
+    return;
+  }
     setError("");
     setUser(null);
     setLoading(true);
@@ -29,9 +36,7 @@ function App() {
     } finally {
       setLoading(false);
     }
-     if(username.trim()==""){
-    setError("Please Enter Username")
-  }
+   
   };
  
 
@@ -40,32 +45,17 @@ function App() {
     <>
       <div className="main">
         <h1>Github profile fetch</h1>
-        <form
-          action="submit"
-          className=" flex  gap-4 justify-center items-center mb-2 "
-          onSubmit={(e) => {
-            e.preventDefault();
-            //function
-            fetchUser();
-          }}
-        >
-          <input
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            className="border-2 border-gray-700 hover:border-gray-400 p-4 rounded-xl w-74 "
-            placeholder="username"
-          />
-          <button className="bg-blue-600 hover:bg-blue-500 p-5 rounded-xl text-white">
-            search
-          </button>
-        </form>
-        {loading && (
-          <div className="loading bg-gray-400 w-full h-32 flex justify-center items-center">
-            <h2 className="text-blue-600 text-xl font-semibold animate-pulse">Loading..👀👀👀</h2>
-          </div>
-        ) }
+      <Searchbar
+       username={username}
+       setUsername={setUsername}
+       fetchUser ={fetchUser} 
+      />
+      
+        
+        <Loading loading ={loading}/>
+        <Errormsg error={error}/>
 
-        {error && <p className="text-red-500">{error}</p>}
+        
 
 
         {user && (
