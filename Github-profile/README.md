@@ -3,6 +3,7 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38BDF8?logo=tailwind-css)
 ![GitHub API](https://img.shields.io/badge/API-GitHub-black?logo=github)
 ![License](https://img.shields.io/badge/License-MIT-green)
+
 # 🚀 GitHub Profile Explorer
 
 A modern React application that allows users to search any GitHub profile and explore their repositories with a clean, responsive interface.
@@ -15,12 +16,13 @@ A modern React application that allows users to search any GitHub profile and ex
 
 ## 📸 Preview
 
-| | |
-|---|---|
-| **Home Page** | **Profile View** |
-| ![Home](https://github.com/Anant23452/Github-explore/raw/main/assets/home.png) | ![Profile](https://github.com/Anant23452/Github-explore/raw/main/assets/profile.png) |
-| **Repository List** | |
-| ![Repos](https://github.com/Anant23452/Github-explore/raw/main/assets/repos.png) | |
+|                                                                                  |                                                                                      |
+| -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| **Home Page**                                                                    | **Profile View**                                                                     |
+| ![Home](https://github.com/Anant23452/Github-explore/raw/main/assets/home.png)   | ![Profile](https://github.com/Anant23452/Github-explore/raw/main/assets/profile.png) |
+| **Repository List**                                                              |                                                                                      |
+| ![Repos](https://github.com/Anant23452/Github-explore/raw/main/assets/repo.png) |                                                                                      |
+
 ---
 
 ## ✨ Features
