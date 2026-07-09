@@ -15,6 +15,18 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [repos,setRepo] =useState([]);
+  const [recentSearch, setRecentSearch] = useState([])
+  useEffect(() => {
+    
+ if(recentSearch){
+   const savedSearch= localStorage.getItem("recentSearch")
+  const parsedSearch= JSON.parse(savedSearch);
+  setRecentSearch(parsedSearch);
+ }
+     
+    
+  }, [])
+  
 
  
 
