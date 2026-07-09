@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import "./App.css";
 import Searchbar from "./components/Searchbar";
 import Loading from "./components/Loading";
@@ -15,8 +15,25 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [repos,setRepo] =useState([]);
+
+ 
+
+ 
+  useEffect(() => {
+    if (username.trim() === "") {
+        return;
+    }
+    const timer = setTimeout(()=>{
+      fetchUser();
+    },500)
+  
+    return () => {
+      clearTimeout(timer)
+    }
+  }, [username])
+  
   const fetchUser = async () => {
-      if(username.trim()==""){
+       if(username.trim()==""){
     setError("Please Enter Username")
     setUser(null);
     setRepo([])
