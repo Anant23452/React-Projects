@@ -6,7 +6,7 @@ import Errormsg from "./components/Errormsg";
 import Profilecard from "./components/Profilecard";
 import Repoitems from "./components/Repoitems";
 import Repolist from "./components/Repolist";
-import RecentSearches from "./components/RecentSearches ";
+import RecentSearches from "./components/RecentSearches";
 
 function App() {
   const [username, setUsername] = useState("");
