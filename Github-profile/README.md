@@ -1,3 +1,8 @@
+![React](https://img.shields.io/badge/React-19-blue?logo=react)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6-yellow?logo=javascript)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38BDF8?logo=tailwind-css)
+![GitHub API](https://img.shields.io/badge/API-GitHub-black?logo=github)
+![License](https://img.shields.io/badge/License-MIT-green)
 # 🚀 GitHub Profile Explorer
 
 A modern React application that allows users to search any GitHub profile and explore their repositories with a clean, responsive interface.
