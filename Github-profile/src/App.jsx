@@ -60,6 +60,8 @@ function App() {
       console.log(data);
       if (response.ok) {
         setUser(data);
+
+        //logic to save search history 
         const filteredSearches = recentSearches.filter(
           (search) => search !== username,
         );
