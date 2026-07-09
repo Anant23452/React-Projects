@@ -2,7 +2,7 @@
 
 A modern React application that allows users to search any GitHub profile and explore their repositories with a clean, responsive interface.
 
-🌐 **Live Demo:** https://your-vercel-link.vercel.app
+🌐 **Live Demo:** https://github-explore-pi.vercel.app/
 
 📂 **Repository:** https://github.com/Anant23452/Github-explore
 
