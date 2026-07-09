@@ -4,9 +4,8 @@ import Repoitems from "./Repoitems";
 
 export default function Repolist({ repos }) {
   const [sortType, setSortType] = useState("most-stars");
-  const [currPage, setCurrPage] = useState(1);
-  const lastRepoIndex = currentPage * repoPerPage;
-  const firstRepoIndex = lastRepoIndex - repoPerPage;
+  const [currentPage, setCurrPage] = useState(1);
+
   let sortedRepos = [...repos];
   if (sortType === "most-stars") {
     sortedRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
@@ -15,6 +14,12 @@ export default function Repolist({ repos }) {
   } else if (sortType === "oldest") {
     sortedRepos.sort((a, b) => new Date(a.created_at) - new Date(b.created_at));
   }
+  const repoPerPage = 5;
+  const lastRepoIndex = currentPage * repoPerPage;
+  const firstRepoIndex = lastRepoIndex - repoPerPage;
+  const currentRepos = sortedRepos.slice(firstRepoIndex, lastRepoIndex);
+  const totalPages = Math.ceil(repos.length / repoPerPage);
+
   console.log(repos);
   return (
     repos.length > 0 && (
@@ -41,9 +46,24 @@ export default function Repolist({ repos }) {
           </button>
         </div>
         <div className="repo  w-full h-full grid  grid-cols-2 md:grid-cols-3 gap-3 p-5 md:p-3">
-          {sortedRepos.map((repo) => (
+          {currentRepos.map((repo) => (
             <Repoitems repo={repo} />
           ))}
+        </div>
+        <div className="disable-button flex  justify-evenly gap-8">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(currentPage - 1)}
+          >
+            ⬅️Previous
+          </button>
+          <p>{currentPage}</p>
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage(currentPage + 1)}
+          >
+            Next➡️
+          </button>
         </div>
       </>
     )
