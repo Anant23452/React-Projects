@@ -15,12 +15,15 @@ A modern React application that allows users to search any GitHub profile and ex
 
 ## 📸 Preview
 
-> Add screenshots here after deployment.
+![Home](./assets/home.png)
 
-| Home Page | User Profile | Repository List |
-|-----------|--------------|-----------------|
-| Screenshot | Screenshot | Screenshot |
+### Profile
 
+![Profile](./assets/profile.png)
+
+### Repository List
+
+![Repos](./assets/repos.png)
 ---
 
 ## ✨ Features
