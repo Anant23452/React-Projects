@@ -4,7 +4,7 @@ import Repoitems from "./Repoitems";
 
 export default function Repolist({ repos }) {
   const [sortType, setSortType] = useState("most-stars");
-  const [currentPage, setCurrPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
 
   let sortedRepos = [...repos];
   if (sortType === "most-stars") {
