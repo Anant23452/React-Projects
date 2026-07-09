@@ -4,6 +4,9 @@ import Repoitems from "./Repoitems";
 
 export default function Repolist({ repos }) {
    const [sortType, setSortType] = useState("most-stars");
+   const [currPage,setCurrPage]=useState(1);
+   const lastRepoIndex = currentPage * repoPerPage;
+const firstRepoIndex = lastRepoIndex - repoPerPage;
   let sortedRepos = [...repos];
   if (sortType === "most-stars") {
     sortedRepos.sort((a, b) => b.stargazers_count - a.stargazers_count);
