@@ -19,9 +19,9 @@ A modern React application that allows users to search any GitHub profile and ex
 |                                                                                  |                                                                                      |
 | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | **Home Page**                                                                    | **Profile View**                                                                     |
-| ![Home](https://github.com/Anant23452/Github-explore/raw/main/assets/home.png)   | ![Profile](https://github.com/Anant23452/Github-explore/raw/main/assets/profile.png) |
+| ![Home](https://github.com/Anant23452/Github-explore/raw/main/Screenshot/home.png)   | ![Profile](https://github.com/Anant23452/Github-explore/raw/main/Screenshot/profile.png) |
 | **Repository List**                                                              |                                                                                      |
-| ![Repos](https://github.com/Anant23452/Github-explore/raw/main/assets/repo.png) |                                                                                      |
+| ![Repos](https://github.com/Anant23452/Github-explore/raw/main/Screenshot/repo.png) |                                                                                      |
 
 ---
 
